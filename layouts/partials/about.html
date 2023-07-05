@@ -1,0 +1,42 @@
+{{ with .Site.Params.about }}
+<div class="aside__about">
+    {{ with .logo }}<img class="about__logo" src="{{ . | absURL }}" alt="Logo">{{ end }}
+<h1 class="about__title">{{ .title }}</h1>
+{{ with .description }}<p class="about__description">{{ . | markdownify }}</p>{{ end }}
+</div>
+{{ end }}
+
+<p>---</p>
+
+<ul class="aside__social-links">
+    {{ range $item := .Site.Params.socialLinks }}
+    <li>
+        <a href="{{ $item.url }}" rel="me" aria-label="{{ $item.title }}" title="{{ $item.title }}"><i class="{{ $item.icon }}" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    {{ end }}
+</ul>
+
+{{ with .Site.Params.pgp }}
+<div class="aside__about" style="display: flex; align-items: center;">
+    <p>{{ .title }}<p>
+    <button onclick="copyToClipboard('.pgpKey')" title="Copy PGP Public Key" class="custom-pgp-button" >
+        <i class="{{ .icon }}" aria-hidden="true"></i>
+    </button>
+    <textarea class="pgpKey" style="display: none;">{{ .key }}</textarea>
+</div>
+{{ end }}
+
+<script>
+function copyToClipboard(element) {
+    var copyText = document.querySelector(element);
+    var textToCopy = copyText.textContent || copyText.value; // Get the text content from the element
+
+    navigator.clipboard.writeText(textToCopy)
+        .then(function() {
+            alert("Copied PGP key");
+        })
+        .catch(function(error) {
+            console.error('Failed to copy: ', error);
+        });
+}
+</script>

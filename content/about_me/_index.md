@@ -4,7 +4,6 @@ date: 2023-07-05T16:06:22+02:00
 draft: false
 ---
 
-\n
 Hello, there!
 
 Currently I'm a member of the CTO Office team at [**Datawalk**](https://datawalk.com). 

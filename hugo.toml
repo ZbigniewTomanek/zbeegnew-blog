@@ -16,6 +16,7 @@ sectionPagesMenu = "main"
 
 [params]
 noindex = false
+custom_css = ["css/custom.css", "css/typography.css"]
 
 [params.theme]
 palette = "gruvbox-dark"
@@ -47,7 +48,7 @@ title = "LinkedIn"
 url = "https://linkedin.com/in/zbigniew-tomanek-0a14831b9"
 
 [params.pgp]
-title = "PGP Key"
+title = "PGP Key  "
 icon = "fa fa-key"
 key = """
 -----BEGIN PGP PUBLIC KEY BLOCK-----

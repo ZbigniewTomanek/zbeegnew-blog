@@ -1,0 +1,20 @@
+.custom-pgp-button {
+    background-color: var(--base00);  /* Change the button background color */
+    border: none;                        /* Remove the button border */
+    color: var(--base05);               /* Change the icon color */
+    text-align: center;                  /* Center the content */
+    text-decoration: none;               /* Remove underline */
+    display: inline-block;               /* Align items in line */
+    font-size: 16px;                     /* Change the font size */
+    cursor: pointer;                     /* Change the cursor when hovering */
+    transition: all 0.3s ease 0s;        /* Add transitions for smooth hover effect */               /* Add a fontawesome icon */
+}
+
+.custom-pgp-button i {
+    color: var(--base0D); /* Change the icon color */
+    font-size: 16px;       /* Change the icon size */
+}
+
+.custom-pgp-button:hover i {
+    color: var(--base0F); 
+}
