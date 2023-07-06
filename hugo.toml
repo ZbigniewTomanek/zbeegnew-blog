@@ -24,8 +24,7 @@ palette = "gruvbox-dark"
 # Sidebar: about/bio
 [params.about]
 title = "zbeegnews blog"
-description = "My coding adventures"
-logo = "images/rice.svg"
+description = "Deciphering the Source Code of Reality"
 
 # Sidebar: social links
 # Available icon sets:
@@ -107,11 +106,6 @@ ZAVUCNZA
 
 [menu]
 
-  [[menu.main]]
-    identifier = "about_me"
-    name = "About me"
-    url = "/about_me/"
-    weight = 10
 
 [taxonomies]
 category = "categories"
