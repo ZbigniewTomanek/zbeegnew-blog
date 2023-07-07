@@ -24,7 +24,7 @@ palette = "gruvbox-dark"
 # Sidebar: about/bio
 [params.about]
 title = "zbeegnews blog"
-description = "Deciphering the Source Code of Reality"
+description = "Reverse Engineering Reality"
 
 # Sidebar: social links
 # Available icon sets:

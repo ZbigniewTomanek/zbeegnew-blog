@@ -7,39 +7,33 @@ draft: false
 # Hello, there!
 
 <br>
-Welcome to my personal blog. It is my space to share things that I find interesting.
+Welcome to my personal blog, where I share things that captivate my interest.
 
 <br>
 <br>
-It's divided into two main parts
+It's divided into two core sections
 
 - [my personal insighths]({{< ref "life/_index.md" >}})
 - [posts about cool tech I'm working on]({{< ref "tech/_index.md" >}})
 
+Feel free to reach out if you have any kind of questions or insights. 
+
 ## About me
 
-<br>
-My expertise lies in managing big data flows, machine learning, and graphs. 
-I believe in the power of data and the transformative impacts it can have when leveraged properly. These fields allow me to dive deep into the heart of data and draw out insights that can be game-changers in their respective areas.
-Currently I'm a member of the CTO Office team at [Datawalk](https://datawalk.com)
 
 <br>
-<br>
 
+Currently I'm a member of the CTO Office team at [Datawalk](https://datawalk.com), where we focus on enhancing our company's technological competencies through innovative graph analytics and big data analysis techniques.
 
-## My Skill Set
+My passion lies in managing large data flows, machine learning, and graph networks. I strongly believe in the transformative potential of data and technology when used effectively and for the right purpose. 
+
 
 My primary technologies include:
 
 - **Python**
 - **Java**
 - **Go**
-- **Lua**
 - **Docker**
 - **Databases**
 
-I thrive in environments where learning and growth are encouraged. Being a fast learner, I'm not afraid to delve into new challenges, learn new technologies, and step out of my comfort zone.
-
-As an engineer, I always take a holistic view of a problem. I understand that every piece is a part of a larger puzzle and it's important to see how they fit together. It's this kind of thinking that allows me to anticipate challenges and create effective solutions.
-
-Stay tuned to this blog as I share my insights, experiences, and journeys in the realm of big data and beyond.
+Off the screen, I have a passion for bouldering, literature, nature, and saunas. I'm a knowledge enthusiast who enjoys collecting intriguing facts. 
