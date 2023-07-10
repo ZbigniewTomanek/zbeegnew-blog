@@ -26,7 +26,7 @@ However, when you have a large number of embeddings, the search for the nearest 
 There is a lot of ready product and solutions which come with the Vector Search functionality included, such as chroma or pinecone.
 However, my goal was to extend a column-oriented database with a vector search feature.
 
-This a non-trivial task, because most of ANN algorithms are designed to work with a stateful in-memory data structures called indexes. This works really well in column oriented databases, where the data is stored in a row-oriented manner and there is native support for in-memory indexes where in most column-oriented databases don't support such indexing, because the data is already sorted in column-oriented projections.
+This a non-trivial task, because most of ANN algorithms are designed to work with a stateful in-memory data structures called indexes. This works really well in [row oriented databases](https://github.com/pgvector/pgvector), where the data is stored in a row-oriented manner and there is native support for in-memory indexes where in most column-oriented databases don't support such indexing, because the data is sorted in column-oriented projections which act as an index.
 
 Therefore I had to find a way to bypass this limitation, and for that I needed ANN techniques which don't produce very heavy index representation, because I had to store it in the database and load and recreate it on every search query. While doing research I've stumbled on a technique called [Locality Sensitive Hashing](https://www.bogotobogo.com/Algorithms/Locality_Sensitive_Hashing_LSH_using_Cosine_Distance_Similarity.php) which seemed to be a perfect fit for my use case.
 
