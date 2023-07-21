@@ -18,3 +18,18 @@
 .custom-pgp-button:hover i {
     color: var(--base0F); 
 }
+.gist-container {
+    width: 100%; /* Set the width to match the width of the content body. */
+    height: auto; /* You can set a fixed height, or let it auto to match the content of the gist. */
+    overflow: auto; /* This will add scrollbars if the gist is larger than the container. */
+}
+
+.gist-container pre {
+    color: #000 !important;
+    background-color: var(--base05)!important;
+}
+.gist-container code {
+    background-color: var(--base05) !important;
+    color: #000 !important;
+}
+
