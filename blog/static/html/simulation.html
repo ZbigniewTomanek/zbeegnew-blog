@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VC Simulation</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="/js/vc-simulation.js"></script>
+    <style>
+        body {
+            font-family: "Fira Mono", monospace;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        table {
+            margin-bottom: 20px;
+            width: 100%; /* This makes the table width 100% of its container */
+            table-layout: fixed; 
+        }
+        td {
+            padding: 10px;
+        }
+        #plot {
+            margin-bottom: 20px;
+            height: 600;
+        }
+        p, label, .value-display {
+            color: #bdae93;
+        }
+
+        input[type=number], input[type=range] {
+            color: #bdae93;
+            background: #3c3836;
+            width: 100%; /* This sets the width of the input fields to fill their container */
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="plot"></div>
+        <div class="slider-container">
+            <label for="maxQuarters">Max Quarters:</label>
+            <input type="range" id="maxQuarters" value="20" min="0" oninput="updateSliderValue(this.value)" onchange="updateSliderValue(this.value)">
+            <div id="sliderValue" class="value-display">20</div>
+        </div>
+        <table align="center">
+            <tr>
+                <td><p>Initial Budget (M$):</p></td>
+                <td><input type="number" id="initialBudget" value="10" step="1" min="1"></td>
+                <td><p>Fail Chance (%):</p></td>
+                <td><input type="number" id="failChance" value="90" step="1" max="100" min="0"></td>
+            </tr>
+            <tr>
+                <td><p>Quarterly acquired startups (min):</p></td>
+                <td><input type="number" id="startupRangeMin" value="10" min="0"></td>
+                <td><p>Quarterly acquired startups (max):</p></td>
+                <td><input type="number" id="startupRangeMax" value="25" min="0"></td>
+            </tr>
+            <tr>
+                <td><p>Investment per startup (M$ min):</p></td>
+                <td><input type="number" id="investmentRangeMin" value="0.25" min="0"></td>
+                <td><p>Investment per startup (M$ max):</p></td>
+                <td><input type="number" id="investmentRangeMax" value="20" min="0"></td>
+            </tr>
+            <tr>
+                <td><p>Growth Range (% min):</p></td>
+                <td><input type="number" id="growthRangeMin" value="30" step="10" min="0" max="100"></td>
+                <td><p>Growth Range (% max):</p></td>
+                <td><input type="number" id="growthRangeMax" value="10000" step="10" min="0" max="100"></td>
+            </tr>
+            <tr>
+                <td><p>Fail Chance Reduction (%):</p></td>
+                <td><input type="number" id="failChanceReduction" value="2" step="0.1" min="0" max="100"></td>
+                <td><p>VC Revenue Percent (%):</p></td>
+                <td><input type="number" id="revenuePercent" value="25" step="1" min="0"></td>
+            </tr>
+        </table>
+    </div>
+
+<script>
+    function updateSliderValue(value) {
+    document.getElementById("sliderValue").textContent = value;
+    }
+
+    function plotSimulation() {
+        const config = {
+            initialBudget: parseFloat(document.getElementById('initialBudget').value) * 1000000,
+            startupRange: [parseInt(document.getElementById('startupRangeMin').value), parseInt(document.getElementById('startupRangeMax').value)],
+            investmentRange: [parseFloat(document.getElementById('investmentRangeMin').value) * 1000000, parseFloat(document.getElementById('investmentRangeMax').value) * 1000000],
+            failChance: parseFloat(document.getElementById('failChance').value) / 100,
+            growthRange: [parseFloat(document.getElementById('growthRangeMin').value) / 100, parseFloat(document.getElementById('growthRangeMax').value) / 100],
+            failChanceReduction: parseFloat(document.getElementById('failChanceReduction').value),
+            revenuePercent: parseFloat(document.getElementById('revenuePercent').value) / 100 + 1,
+            maxQuarters: parseInt(document.getElementById('maxQuarters').value)
+        };
+        const results = runSimulation(config);
+        plotResults(results, config);
+
+    }
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('change', plotSimulation);
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        plotSimulation();
+    });
+</script>
+</body>
+</html>
