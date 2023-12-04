@@ -46,19 +46,25 @@
         <div id="plot"></div>
         <div class="slider-container">
             <label for="maxQuarters">Max Quarters:</label>
-            <input type="range" id="maxQuarters" value="20" min="0" oninput="updateSliderValue(this.value)" onchange="updateSliderValue(this.value)">
-            <div id="sliderValue" class="value-display">20</div>
+            <input type="range" id="maxQuarters" value="30" min="0" oninput="updateSliderValue(this.value)" onchange="updateSliderValue(this.value)">
+            <div id="sliderValue" class="value-display">30</div>
         </div>
         <table align="center">
             <tr>
                 <td><p>Initial Budget (M$):</p></td>
-                <td><input type="number" id="initialBudget" value="10" step="1" min="1"></td>
-                <td><p>Fail Chance (%):</p></td>
-                <td><input type="number" id="failChance" value="90" step="1" max="100" min="0"></td>
+                <td><input type="number" id="initialBudget" value="250" step="1" min="1"></td>
+                <td><p>Exit Chance (%):</p></td>
+                <td><input type="number" id="exitChance" value="5" step="1" min="0" max="100"></td>
+            </tr>
+            <tr>
+                <td><p>Fail Chance Range Min (%):</p></td>
+                <td><input type="number" id="failChanceRangeMin" value="85" step="1" min="0" max="100"></td>
+                <td><p>Fail Chance Range Max (%):</p></td>
+                <td><input type="number" id="failChanceRangeMax" value="92" step="1" min="0" max="100"></td>
             </tr>
             <tr>
                 <td><p>Quarterly acquired startups (min):</p></td>
-                <td><input type="number" id="startupRangeMin" value="10" min="0"></td>
+                <td><input type="number" id="startupRangeMin" value="5" min="0"></td>
                 <td><p>Quarterly acquired startups (max):</p></td>
                 <td><input type="number" id="startupRangeMax" value="25" min="0"></td>
             </tr>
@@ -66,19 +72,19 @@
                 <td><p>Investment per startup (M$ min):</p></td>
                 <td><input type="number" id="investmentRangeMin" value="0.25" min="0"></td>
                 <td><p>Investment per startup (M$ max):</p></td>
-                <td><input type="number" id="investmentRangeMax" value="20" min="0"></td>
+                <td><input type="number" id="investmentRangeMax" value="2" min="0"></td>
             </tr>
             <tr>
                 <td><p>Growth Range (% min):</p></td>
                 <td><input type="number" id="growthRangeMin" value="30" step="10" min="0" max="100"></td>
                 <td><p>Growth Range (% max):</p></td>
-                <td><input type="number" id="growthRangeMax" value="10000" step="10" min="0" max="100"></td>
+                <td><input type="number" id="growthRangeMax" value="2000" step="10" min="0" max="100"></td>
             </tr>
             <tr>
                 <td><p>Fail Chance Reduction (%):</p></td>
                 <td><input type="number" id="failChanceReduction" value="2" step="0.1" min="0" max="100"></td>
                 <td><p>VC Revenue Percent (%):</p></td>
-                <td><input type="number" id="revenuePercent" value="25" step="1" min="0"></td>
+                <td><input type="number" id="revenuePercent" value="7" step="1" min="0"></td>
             </tr>
         </table>
     </div>
@@ -93,11 +99,13 @@
             initialBudget: parseFloat(document.getElementById('initialBudget').value) * 1000000,
             startupRange: [parseInt(document.getElementById('startupRangeMin').value), parseInt(document.getElementById('startupRangeMax').value)],
             investmentRange: [parseFloat(document.getElementById('investmentRangeMin').value) * 1000000, parseFloat(document.getElementById('investmentRangeMax').value) * 1000000],
-            failChance: parseFloat(document.getElementById('failChance').value) / 100,
             growthRange: [parseFloat(document.getElementById('growthRangeMin').value) / 100, parseFloat(document.getElementById('growthRangeMax').value) / 100],
             failChanceReduction: parseFloat(document.getElementById('failChanceReduction').value),
             revenuePercent: parseFloat(document.getElementById('revenuePercent').value) / 100 + 1,
-            maxQuarters: parseInt(document.getElementById('maxQuarters').value)
+            maxQuarters: parseInt(document.getElementById('maxQuarters').value),
+            failChanceRange: [parseFloat(document.getElementById('failChanceRangeMin').value) / 100, parseFloat(document.getElementById('failChanceRangeMax').value) / 100],
+            exitChance: parseFloat(document.getElementById('exitChance').value) / 100,
+            vcOperatingCost: 250000,
         };
         const results = runSimulation(config);
         plotResults(results, config);
