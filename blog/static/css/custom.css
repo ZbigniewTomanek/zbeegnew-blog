@@ -32,3 +32,33 @@
     background-color: var(--base05) !important;
     color: #000 !important;
 }
+
+/* Notice shortcode styles */
+.notice {
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+}
+
+.notice.note {
+    background-color: var(--base0D);
+    border-left: 4px solid var(--base0E);
+    color: var(--base07);
+}
+
+.notice.tip {
+    background-color: var(--base0B);
+    border-left: 4px solid var(--base0A);
+    color: var(--base07);
+}
+
+.notice.warning {
+    background-color: var(--base09);
+    border-left: 4px solid var(--base08);
+    color: var(--base07);
+}
+
+.notice p {
+    margin: 0;
+}
