@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <header class="content__header">
+    {{ if .Title }}<h1>{{ .Title | markdownify }}</h1>{{ end }}
+  </header>
+  <article class="post__content">
+    {{ .Content }}
+  </article>
+{{ end }}
+

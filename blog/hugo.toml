@@ -3,7 +3,8 @@ theme = "risotto"
 title = "zbeegnews blog"
 author = "Zbigniew Tomanek"
 copyright = "Zbigniew Tomanek"
-paginate = 3
+[pagination]
+pagerSize = 3
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
@@ -132,7 +133,7 @@ unsafe = true
     disabled = false
     simple = true
 
-  [privacy.twitter]
+  [privacy.x]
     disabled = false
     enableDNT = true
     simple = true
@@ -150,5 +151,5 @@ unsafe = true
   [services.instagram]
     disableInlineCSS = true
 
-  [services.twitter]
+  [services.x]
     disableInlineCSS = true
